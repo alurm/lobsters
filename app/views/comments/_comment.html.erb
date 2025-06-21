@@ -30,7 +30,15 @@
   <div class="voters">
     <label for="comment_folder_<%= comment.short_id %>" class="comment_folder"></label>
     <% if !comment.is_gone? %>
-      <%= link_to comment.score_for_user(@user), (@user ? '': login_path), :class => "upvoter" %>
+      <%#= link_to comment.score_for_user(@user), (@user ? '': login_path), :class => "upvoter" %>
+      <%= button_to(
+        comment.score_for_user(@user),
+        "/comments/#{comment.short_id}/#{
+          comment.current_upvoted? ? "unvote" : "upvote"
+        }",
+        :class => "upvoter",
+        )
+      %>
     <% elsif @user&.is_moderator? %>
       <span class="upvoter"><%= comment.score_for_user(@user) %></span>
     <% end %>

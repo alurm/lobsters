@@ -233,7 +233,8 @@ class CommentsController < ApplicationController
       0, comment.story_id, comment.id, @user.id, nil
     )
 
-    render plain: "ok"
+    redirect_to Routes.comment_target_path(comment, true)
+    # render plain: "ok"
   end
 
   def upvote
@@ -245,7 +246,8 @@ class CommentsController < ApplicationController
       1, comment.story_id, comment.id, @user.id, nil
     )
 
-    render plain: "ok"
+    redirect_to Routes.comment_target_path(comment, true)
+    # render plain: "ok"
   end
 
   def flag

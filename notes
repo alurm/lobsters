@@ -1,0 +1,4 @@
+create user if not exists root@'%' identified by 'localdev';
+grant all on *.* to root@'%' with grant option;
+
+await fetch('https://lobste.rs/comments/qsiuz5/unvote', { method: 'post' })

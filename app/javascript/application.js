@@ -590,7 +590,7 @@ onPageLoad(() => {
     Lobster.fetchURLTitle(event.target);
   });
 
-  on('click', 'li.story a.upvoter', (event) => {
+  on('click', 'li.story .upvoter', (event) => {
     event.preventDefault();
     Lobster.upvoteStory(event.target);
   });
@@ -742,7 +742,7 @@ onPageLoad(() => {
     Lobster.removeFlagModal()
   });
 
-  on("click", '.comment a.upvoter', (event) => {
+  on("click", '.comment .upvoter', (event) => {
     event.preventDefault();
     Lobster.upvoteComment(event.target);
   });
